@@ -1,0 +1,15 @@
+* root {
+  --clr-primary: #fffffc;
+  --clr-secondary: #00b4d8;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  background-color: var(--clr-secondary);
+  color: var(--clr-primary);
+}
