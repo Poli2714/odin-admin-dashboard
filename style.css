@@ -17,7 +17,7 @@ html {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
   grid-template-areas:
     'sidebar header'
     'sidebar dashboard';
@@ -31,7 +31,7 @@ html {
   gap: 3rem;
   grid-area: sidebar;
   grid-template-rows: repeat(3, max-content);
-  padding: 2rem;
+  padding: 1.5rem;
 
   & h1 {
     font-size: 1.5rem;
@@ -47,24 +47,44 @@ li {
 
 ul {
   gap: 1rem;
+
+  & img {
+    transition: scale 300ms ease;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.2;
+    }
+  }
 }
 
 .logo,
 li {
   gap: 2rem;
   grid-template-columns: repeat(2, max-content);
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .logo {
+  cursor: pointer;
   gap: 0.5rem;
 }
 
 ul {
   list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  transition: scale 300ms ease;
+
+  &:link,
+  &:visited {
+    color: var(--clr-primary);
+  }
+
+  &:hover {
+    scale: 1.1;
+  }
 }
 
 header {
