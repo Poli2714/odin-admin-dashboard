@@ -20,12 +20,11 @@ h2,
 h3,
 h4 {
   color: #333;
-  line-height: calc(1ex / 0.42);
 }
 
-button {
+button,
+input {
   appearance: none;
-  cursor: pointer;
   background-color: inherit;
   border: none;
   font-family: inherit;
@@ -125,16 +124,42 @@ header {
 }
 
 .first-row {
-  margin-bottom: 1rem;
-
-  .search {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+  margin-bottom: 1.5rem;
 
   & h2 {
     font-size: clamp(0.5rem, 1.13vw, 1rem);
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  & img:hover {
+    cursor: pointer;
+  }
+
+  & input {
+    background-color: #edf2fb;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    padding: clamp(0.4rem, 0.6vw, 0.5rem) 1.25rem;
+    width: clamp(12rem, 35vw, 40rem);
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+.search + div img {
+  transition: scale 300ms ease;
+
+  &:hover {
+    cursor: pointer;
+    scale: 1.1;
   }
 }
 
@@ -172,8 +197,14 @@ header {
   background-color: var(--clr-secondary);
   border-radius: clamp(15px, 1.13vw, 20px);
   color: var(--clr-primary);
+  cursor: pointer;
   font-size: clamp(0.7rem, 0.9vw, 0.8rem);
   padding: clamp(0.4rem, 0.6vw, 0.5rem) clamp(1rem, 1.8vw, 1.5rem);
+  transition: scale 300ms ease;
+
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 /* DASHBOARD */
@@ -290,5 +321,21 @@ h3 {
     &:last-child .profile-pic {
       background-color: #dec5e3;
     }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .first-row h2 {
+    display: none;
+  }
+
+  .second-row {
+    gap: 1rem;
+    grid-template-columns: max-content;
+    grid-template-rows: repeat(2, max-content);
+  }
+
+  .btns {
+    justify-content: flex-end;
   }
 }
