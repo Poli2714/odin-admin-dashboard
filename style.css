@@ -15,6 +15,15 @@ html {
   font-size: 20px;
 }
 
+button {
+  appearance: none;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -53,7 +62,7 @@ ul {
 
     &:hover {
       cursor: pointer;
-      scale: 1.2;
+      scale: 1.1;
     }
   }
 }
@@ -83,12 +92,87 @@ a {
   }
 
   &:hover {
-    scale: 1.1;
+    scale: 1.05;
   }
 }
 
 header {
   grid-area: header;
+  padding: 1rem 2rem;
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  & :first-child {
+    margin-right: auto;
+  }
+
+  .profile-pic {
+    background-color: #fcbf49;
+    border-radius: 50%;
+  }
+}
+
+header > div:first-child {
+  margin-bottom: 1rem;
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  & h2 {
+    font-size: 1rem;
+  }
+}
+
+header > div:last-child {
+  gap: 0;
+
+  .profile {
+    display: grid;
+    align-items: center;
+    column-gap: 1rem;
+    grid-template-areas:
+      'img greeting'
+      'img profile-name';
+    grid-template-columns: max-content max-content;
+
+    .profile-pic {
+      grid-area: img;
+    }
+
+    & span {
+      align-self: end;
+      font-size: 0.75rem;
+      font-weight: bold;
+      grid-area: greeting;
+    }
+
+    & h2 {
+      font-size: 1.5rem;
+      grid-area: profile-name;
+    }
+  }
+
+  .btns {
+    display: flex;
+    align-items: end;
+    align-self: flex-end;
+    gap: 1.25rem;
+
+    .btn {
+      background-color: var(--clr-secondary);
+      border-radius: 20px;
+      color: var(--clr-primary);
+      font-size: 0.8rem;
+      padding: 0.5rem 1.5rem;
+    }
+  }
 }
 
 .dashboard {
